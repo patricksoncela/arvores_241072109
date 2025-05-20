@@ -11,17 +11,19 @@ public class Arvore {
     }
 
     public void percorrerPreOrdem(No node){
-        if (node == null) {
-            System.out.println("Árvore vazia");
-        } else {
-            System.out.println(node.valor + " ");
-            System.out.println(node.esquerda);
-            System.out.println(node.direita);
+        if (node != null){
+            System.out.print(node.valor + " ");
+            percorrerPreOrdem(node.esquerda);
+            percorrerPreOrdem(node.direita);
         }
     }
 
     public void percorrerEmOrdem(No node){
-
+        if (node != null){
+            percorrerPreOrdem(node.esquerda);
+            System.out.print(node.valor + " ");
+            percorrerPreOrdem(node.direita);
+        }
     }
 
 }
