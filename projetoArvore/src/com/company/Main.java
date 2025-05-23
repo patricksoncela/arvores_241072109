@@ -1,6 +1,7 @@
 package com.company;
 
 import java.sql.SQLOutput;
+import java.util.Stack;
 
 public class Main {
 
@@ -28,6 +29,8 @@ public class Main {
         System.out.println("");
         System.out.print("Percorrer em ordem: ");
         arvore.percorrerEmOrdem(arvore.raiz);
+
+        arvore.preOrdemSemRecursividade();
     }
 
 }
