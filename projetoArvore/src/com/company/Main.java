@@ -26,11 +26,12 @@ public class Main {
         System.out.println("O total de nós na árvore é: " + arvore.contarNos(arvore.raiz));
         System.out.print("Percorrer em pré-ordem: ");
         arvore.percorrerPreOrdem(arvore.raiz);
-        System.out.println("");
         System.out.print("Percorrer em ordem: ");
         arvore.percorrerEmOrdem(arvore.raiz);
 
         arvore.preOrdemSemRecursividade();
+        arvore.emOrdemSemRecursividade();
+        arvore.posOrdemSemRecursividade();
     }
 
 }
