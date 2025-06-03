@@ -4,8 +4,64 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Arvore {
+public class ArvoreAVL {
+    int fb;
     No raiz;
+
+
+    //Estrutura de Árvore AVL |
+    public int altura(No no){
+        return no == null ? 0 : (no.altura);
+    }
+
+    public int atualizarAltura(No no){
+        return no.altura + Math.max(altura(no.esquerda),altura(no.direita));
+    }
+
+    public int fatorBalanceamento(No no){
+        return no == null ? 0 : altura(no.esquerda) - altura(no.direita);
+    }
+    //Estrutura de Árvore AVL |
+
+    //Rotações                |
+    public No rotacaoAEsquerdaRR(No x){
+        //considerando a ordem dos nós como x,y,z
+        //Nó y vai ser o filho direito de z
+        No y = x.direita;
+
+        //Nó esquerdo de y, que no fim do método será x
+        No n2 = y.esquerda;
+
+        //rotação
+        y.esquerda = x;
+        x.direita = n2;
+
+        //Atualiza a altura dos nós
+        atualizarAltura(y);
+        atualizarAltura(x);
+
+        return y;
+    }
+
+    public No rotacaoADireitaLR(No y){
+        No x = y.direita;
+        No n2 = x.esquerda;
+
+
+        x.direita = y;
+        y.esquerda = n2;
+
+
+        atualizarAltura(y);
+        atualizarAltura(x);
+
+        return x;
+    }
+
+
+    //Rotações                |
+
+
 
     public int contarNos(No node){
         if (node == null) {
@@ -138,6 +194,6 @@ public class Arvore {
         }
         return contador;
     }
+
+
 }
-
-
