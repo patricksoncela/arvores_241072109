@@ -1,15 +1,13 @@
 package com.company;
 
 public class No {
-    String valor;
+    int valor;
     No esquerda, direita;
     int altura;
 
-    public No(String valor){
+    public No(int valor){
         this.valor = valor;
         esquerda = direita = null;
         this.altura = 1;
     }
-
-
 }
