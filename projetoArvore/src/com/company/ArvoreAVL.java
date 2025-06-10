@@ -9,7 +9,7 @@ public class ArvoreAVL {
     No raiz;
 
 
-    //Estrutura de Árvore AVL {
+    //Estrutura de Árvore AVL{
 
     public int altura(No no){
         return no == null ? 0 : (no.altura);
@@ -25,21 +25,38 @@ public class ArvoreAVL {
 
     No inserir(No no, int valor){
         if (no == null)
-            return new No(valor)
+            return new No(valor);
 
 
         if (valor < no.valor)
             no.esquerda = inserir(no.esquerda, valor);
-        else if (valor no.valor)
+        else if (valor > no.valor)
             no.direita = inserir(no.direita, valor);
         else
             return no;
         no.altura = 1 + Math.max(altura(no.esquerda), altura(no.direita));
+
+        int balanceamento = fatorBalanceamento(no);
+
+         if (balanceamento < -1 && valor > no.direita.valor){
+             return rotacaoAEsquerdaRR(no);
+         }
+
+         if (balanceamento > 1 && valor > no.esquerda.valor){
+             no.esquerda = rotacaoAEsquerdaRR(no.esquerda);
+             return rotacaoADireitaLR(no);
+         }
+
+         if (balanceamento < -1 && valor < no.direita.valor){
+             no.direita = rotacaoADireitaLR(no.direita);
+             return rotacaoAEsquerdaRR(no);
+         }
+    return no;
     }
 
-    //Estrutura de Árvore AVL }
+    //Estrutura de Árvore AVL}
 
-    //Rotações                {
+    //Rotações{
 
     public No rotacaoAEsquerdaRR(No x){
         //considerando a ordem dos nós como x,y,z
