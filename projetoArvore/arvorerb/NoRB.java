@@ -5,7 +5,6 @@ public class NoRB {
     NoRB direita,esquerda, pai;
     Cores cor;
 
-
     public NoRB(int valor){
         this.valor = valor;
         esquerda = direita = null;

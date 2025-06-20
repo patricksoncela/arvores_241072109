@@ -1,7 +1,5 @@
 package com.company;
 
-import com.company.arvorerb.ArvoreRB;
-
 import java.sql.SQLOutput;
 import java.util.Stack;
 
@@ -15,8 +13,7 @@ public class Main {
         No no5 = new No(5);
         No no6 = new No(6);
 
-        int[] valores = {10,20,30,15,5,25};
-
+        int[] valores = {10,20,30,40,50,25};
 
 
         no1.esquerda = no2;
@@ -42,9 +39,6 @@ public class Main {
         for (int valor : valores){
             arvore.raiz =  arvore1.inserir(arvore.raiz, valor);
         }
-
-        ArvoreRB tree = new ArvoreRB();
-
     }
 
 }
